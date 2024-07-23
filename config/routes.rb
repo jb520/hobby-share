@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :posts
   resources :hobbies
   devise_for :users
 
