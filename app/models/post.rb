@@ -22,6 +22,9 @@
 #  user_id   (user_id => users.id)
 #
 class Post < ApplicationRecord
-  belongs_to :user
-  belongs_to :hobby
+  belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
+  belongs_to :hobby, required: true, class_name: "Hobby", foreign_key: "hobby_id"
+
+  has_many  :likes, class_name: "Like", foreign_key: "post_id", dependent: :destroy
+  has_many  :comments, class_name: "Comment", foreign_key: "post_id", dependent: :destroy
 end
