@@ -12,6 +12,19 @@
   </head>
 
   <body>
+    <div class="flex flex-row bg-gray-200 justify-between px-4">
+      <div><a href="#">Dashboard</a></div>
+      <div class="space-x-4">
+        <% if !user_signed_in? %>
+        <a href="#">Sign up</a>
+        <a href="#">Sign in</a>
+        <% else %>
+        <a href="#">Edit user</a>
+        <a href="#">Log out</a>
+        <% end %>
+      </div>
+    </div>
+    
     <main class="container mx-auto mt-28 px-5 flex">
       <%= yield %>
     </main>

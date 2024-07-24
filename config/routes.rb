@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  root "users#dashboard"
+  
   resources :comments
   resources :likes
   resources :posts
