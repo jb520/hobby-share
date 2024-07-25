@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Post #<%= @the_post.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/posts">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_post/<%= @the_post.id %>">
+          Delete post
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        User
+      </dt>
+      <dd>
+        <%= @the_post.user_id %>
+      </dd>
+
+      <dt>
+        Hobby
+      </dt>
+      <dd>
+        <%= @the_post.hobby_id %>
+      </dd>
+
+      <dt>
+        Body
+      </dt>
+      <dd>
+        <%= @the_post.body %>
+      </dd>
+
+      <dt>
+        Like counter
+      </dt>
+      <dd>
+        <%= @the_post.like_counter %>
+      </dd>
+
+      <dt>
+        Image
+      </dt>
+      <dd>
+        <%= @the_post.image %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_post.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_post.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit post
+    </h2>
+
+    <form action="/modify_post/<%= @the_post.id %>"  method="post" >
+      <div>
+        <label for="user_id_box">
+          User
+        </label>
+
+        <input type="text" id="user_id_box" name="query_user_id" value="<%= @the_post.user_id %>">
+      </div>
+
+      <div>
+        <label for="hobby_id_box">
+          Hobby
+        </label>
+
+        <input type="text" id="hobby_id_box" name="query_hobby_id" value="<%= @the_post.hobby_id %>">
+      </div>
+
+      <div>
+        <label for="body_box">
+          Body
+        </label>
+
+        <textarea id="body_box" name="query_body"><%= @the_post.body %></textarea>
+      </div>
+
+      <div>
+        <label for="like_counter_box">
+          Like counter
+        </label>
+
+        <input type="text" id="like_counter_box" name="query_like_counter" value="<%= @the_post.like_counter %>">
+      </div>
+
+      <div>
+        <label for="image_box">
+          Image
+        </label>
+
+        <input type="text" id="image_box" name="query_image" value="<%= @the_post.image %>">
+      </div>
+
+      <button>
+        Update post
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

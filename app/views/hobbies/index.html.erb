@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all hobbies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new hobby
+    </h2>
+
+    <form action="/insert_hobby" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <button>
+        Create hobby
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table border="1">
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_hobbies.each do |a_hobby| %>
+      <tr>
+        <td>
+          <%= a_hobby.id %>
+        </td>
+
+        <td>
+          <%= a_hobby.name %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_hobby.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_hobby.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/hobbies/<%= a_hobby.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>
