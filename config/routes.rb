@@ -1,9 +1,13 @@
 Rails.application.routes.draw do
+  root "users#dashboard"
+  
   devise_for :users
 
-  
+  resources :hobbies
+  resources :posts
+  resources :likes
+  resources :comments
 
-  root "users#dashboard"
   # Routes for the Comment resource:
 
   # CREATE

@@ -40,11 +40,17 @@ task({ :sample_data => :environment }) do
     p "There are now #{Hobby.count} hobbies."
 
     users = User.all
+    sample_hobby = [] 
+    
+    5.times do
+      rand_hobby = Hobby.all.sample.id
+      sample_hobby.push(rand_hobby)
+    end
 
     users.each do |user|
       rand(15).times do
         post = user.posts.create(
-          hobby_id: 1,
+          hobby_id: sample_hobby.sample,
           body: Faker::TvShows::AquaTeenHungerForce.quote,
           like_counter: rand(20)
         )
