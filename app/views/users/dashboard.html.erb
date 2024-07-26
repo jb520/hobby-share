@@ -1,2 +1,11 @@
-hello world
-<div class="btn btn-dark">button</div>
+<div class="container mx-1">
+  <h2>Dashboard</h2>
+
+  <div class="card px-2" style="width: 18rem;">
+    <img src="<%= @user.image %>">
+    <span class="d-flex justify-content-between"><%= @user.username %> <i class="fa-regular fa-pen-to-square"></i></span>
+    <hr>
+    <%= @user.bio %>
+  </div>
+  <button>Hobbies</button>
+</div>
