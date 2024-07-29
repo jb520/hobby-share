@@ -42,7 +42,7 @@ task({ :sample_data => :environment }) do
     users = User.all
     sample_hobby = [] 
     
-    5.times do
+    10.times do
       rand_hobby = Hobby.all.sample.id
       sample_hobby.push(rand_hobby)
     end
@@ -57,6 +57,24 @@ task({ :sample_data => :environment }) do
       end
     end
 
+    sample_post = []
+
+    10.times do
+      rand_post = Post.all.sample.id
+      sample_post.push(rand_post)
+    end
+
+    users.each do |user|
+      rand(15).times do
+        comment = user.comments.create(
+          post_id: sample_post.sample,
+          body: Faker::TvShows::AquaTeenHungerForce.quote,
+        )
+      end
+    end
+
   
   p "There are now #{Post.count} posts."
+  p "There are now #{Comment.count} comments."
+
 end
