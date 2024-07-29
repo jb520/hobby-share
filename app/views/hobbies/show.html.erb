@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      <%= @the_hobby.name %> 
+      <%= @hobby.name %> 
     </h1>
 
     <div>
@@ -12,7 +12,7 @@
       </div>
 
       <!--<div>
-        <a href="/delete_hobby/<%= @the_hobby.id %>">
+        <a href="/delete_hobby/<%= @hobby.id %>">
           Delete hobby
         </a>-->
       </div>
@@ -23,14 +23,14 @@
         Name
       </dt>
       <dd>
-        <%= @the_hobby.name %>
+        <%= @hobby.name %>
       </dd>
     </dl>
   </div>
 </div>
 
 
-<% @the_hobby.posts.all.each do |post| %>
+<% @hobby.posts.all.each do |post| %>
   <div class="card">
     <div class="card-body">
       <p class="card-text"><%=post.body%></p>
@@ -47,13 +47,13 @@
       Edit hobby
     </h2>
 
-    <form action="/modify_hobby/<%= @the_hobby.id %>"  method="post" >
+    <form action="/modify_hobby/<%= @hobby.id %>"  method="post" >
       <div>
         <label for="name_box">
           Name
         </label>
 
-        <input type="text" id="name_box" name="query_name" value="<%= @the_hobby.name %>">
+        <input type="text" id="name_box" name="query_name" value="<%= @hobby.name %>">
       </div>
 
       <button>

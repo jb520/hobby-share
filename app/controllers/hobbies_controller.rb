@@ -1,19 +1,21 @@
 class HobbiesController < ApplicationController
+  before_action :set_hobby, only: %i[ show update destroy ]
   def index
-     matching_hobbies = Hobby.all
+    #  matching_hobbies = Hobby.all
+    @hobbies = Hobby.all
+    @list_of_hobbies = @hobbies.order({ :created_at => :desc })
 
-     @list_of_hobbies = matching_hobbies.order({ :created_at => :desc })
-
-     render({ :template => "hobbies/index" })
-    #@hobbies = Hobby.all
+    #  render({ :template => "hobbies/index" })
+    # #@hobbies = Hobby.all
   end
 
   def show
-     the_id = params.fetch("path_id")
+    @hobbies = Hobby.all
+     #the_id = params.fetch("path_id")
 
-     matching_hobbies = Hobby.where({ :id => the_id })
+     #matching_hobbies = Hobby.where({ :id => the_id })
 
-     @the_hobby = matching_hobbies.at(0)
+     #@the_hobby = matching_hobbies.at(0)
 
     # render({ :template => "hobbies/show" })
   end
@@ -52,4 +54,14 @@ class HobbiesController < ApplicationController
 
     redirect_to("/hobbies", { :notice => "Hobby deleted successfully."} )
   end
+  
+  private
+    def set_hobby
+      @hobby = Hobby.find(params[:id])
+    end
+
+  #   def hobby_params
+  #     params.require(:hobby).permit(:name)
+  #   end
+
 end
