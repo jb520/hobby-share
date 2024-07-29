@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: %i[ show update destroy ]
   def index
     matching_posts = Post.all
 
@@ -8,13 +9,14 @@ class PostsController < ApplicationController
   end
 
   def show
-    the_id = params.fetch("path_id")
+    @posts = Post.all
+    # the_id = params.fetch("path_id")
 
-    matching_posts = Post.where({ :id => the_id })
+    # matching_posts = Post.where({ :id => the_id })
 
-    @the_post = matching_posts.at(0)
+    # @the_post = matching_posts.at(0)
 
-    render({ :template => "posts/show" })
+    # render({ :template => "posts/show" })
   end
 
   def create
@@ -59,4 +61,9 @@ class PostsController < ApplicationController
 
     redirect_to("/posts", { :notice => "Post deleted successfully."} )
   end
+
+  private
+    def set_post
+      @post = Post.find(params[:id])
+    end
 end
