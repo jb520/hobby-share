@@ -1,5 +1,5 @@
 # Hobbyshare
-##Description
+## Description
 Hobby-share aims to be a platform where users can discuss their shared hobbies.
 ## Usage
 Not yet hosted.
