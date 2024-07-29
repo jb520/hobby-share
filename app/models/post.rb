@@ -16,4 +16,9 @@ class Post < ApplicationRecord
   belongs_to :hobby, required: true, class_name: "Hobby", foreign_key: "hobby_id"
   has_many  :likes, class_name: "Like", foreign_key: "post_id", dependent: :destroy
   has_many  :comments, class_name: "Comment", foreign_key: "post_id", dependent: :destroy
+
+  def poster
+    matching_user = User.where({ :id => self.user_id }).at(0)
+    return matching_user
+  end
 end

@@ -3,10 +3,10 @@ Rails.application.routes.draw do
   
   devise_for :users
 
-  resources :hobbies
-  resources :posts
-  resources :likes
-  resources :comments
+  #resources :hobbies
+  #resources :posts
+  #resources :likes
+  #resources :comments
 
   # Routes for the Comment resource:
 
@@ -16,7 +16,9 @@ Rails.application.routes.draw do
   # READ
   get("/comments", { :controller => "comments", :action => "index" })
   
+  
   get("/comments/:path_id", { :controller => "comments", :action => "show" })
+  
   
   # UPDATE
   
@@ -34,8 +36,10 @@ Rails.application.routes.draw do
           
   # READ
   get("/hobbies", { :controller => "hobbies", :action => "index" })
+  #get "/hobbies" => "hobby#index"
   
   get("/hobbies/:path_id", { :controller => "hobbies", :action => "show" })
+  #get "hobbies/:id" => "hobby#show" as: :hobby
   
   # UPDATE
   
