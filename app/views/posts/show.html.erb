@@ -7,8 +7,8 @@
   <div class="card px-5 mx-5 d-flex">
     <!--<img src="..." class="card-img-top" alt="...">-->
     <div class="card-body">
-      <h5 class="card-title"><%=@post.poster.username%></h5>
-      <p class="card-text py-2 px-3"><%=@post.body%></p>
+      <h5 class="card-title"><img src="<%=@post.poster.image%>" class="pe-2" style="height: 2.5em; border-radius: 50px"><%=@post.poster.username%></h5>
+      <p class="card-text py-2 px-5"><%=@post.body%></p>
       <p class="card-text d-flex justify-content-end"><small class="d-flex align-self-center text-muted"><%= time_ago_in_words(@post.created_at) %> ago</small></p>
     </div>
   </div>

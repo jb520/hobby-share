@@ -10,13 +10,15 @@ task({ :sample_data => :environment }) do
     User.destroy_all
   end
 
+  names_arr = ["Ginger", "Miss_kitty", "Mimi", "Salem", "Zoey", "Nala", "Cookie", "Sam", "Lucy", "Bailey", "Misty", "Trouble"]
+
   username = "Alice"
   User.create(
       email: "#{username}@example.com",
       password: "password",
       username: username,
       bio: Faker::Books::Lovecraft.sentence,
-      image: "https://robohash.org/#{rand(9999)}"
+      image: "https://api.dicebear.com/9.x/lorelei/svg?seed=#{names_arr.sample}&backgroundType=gradientLinear&backgroundRotation=0,360,50,40,20,60&frecklesProbability=30&hairAccessoriesProbability=25&backgroundColor=d1d4f9,c0aede,b6e3f4,ffdfbf,ffd5dc"
     )
 
   18.times do
@@ -26,7 +28,7 @@ task({ :sample_data => :environment }) do
       password: "password",
       username: username,
       bio: Faker::Books::Lovecraft.sentence,
-      image: "https://robohash.org/#{rand(9999)}"
+      image: "https://api.dicebear.com/9.x/lorelei/svg?seed=#{names_arr.sample}&backgroundType=gradientLinear&backgroundRotation=0,360,50,40,20,60&frecklesProbability=30&hairAccessoriesProbability=25&backgroundColor=d1d4f9,c0aede,b6e3f4,ffdfbf,ffd5dc"
     )
   end
 

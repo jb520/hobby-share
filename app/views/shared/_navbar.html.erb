@@ -3,7 +3,7 @@
     <% if user_signed_in? %>
       <a class="nav-link" href="/users/edit">Edit</a>
       <!--<a class="nav-link" href="/users/sign_out">Sign-out</a>-->
-      <%= link_to 'sign_out', destroy_user_session_path, :method => :delete %>
+      <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, :class => "nav-link"%>
     <% else %>
       <a class="nav-link" href="/users/sign_in">Sign-in</a>
       <a class="nav-link" href="/users/sign_up">Sign-up</a>
