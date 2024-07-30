@@ -88,7 +88,7 @@
 </div>
 
 <hr>
-<h3>Comments</h3>
+<div class="d-flex justify-content-between"><h3>Comments</h3> <%= link_to 'new comment', insert_comment_path, :method => :post %></div>
 <div class="container mx-5 py-2">
   <% @post.comments.all.each do |comment| %>
     <div class="card my-3">
@@ -99,4 +99,12 @@
     <!--<img src="..." class="card-img-bottom" alt="...">-->
     </div>
   <% end %>
+  <form action="/insert_comment" method="post">
+    <input name="query_user_id" type="hidden" value="<%=current_user.id%>">
+    <input name="query_post_id" type="hidden" value="<%=@post.id%>"> 
+    <textarea id="body_box" name="query_body" rows="3"></textarea>
+    <button>
+        Create comment
+      </button>
+  </form>
 </div>

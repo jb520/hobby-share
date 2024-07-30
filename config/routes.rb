@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :hobbies
   resources :posts
   #resources :likes
-  #resources :comments
+  resources :comments
 
   # Routes for the Comment resource:
 
@@ -14,10 +14,10 @@ Rails.application.routes.draw do
   post("/insert_comment", { :controller => "comments", :action => "create" })
           
   # READ
-  get("/comments", { :controller => "comments", :action => "index" })
+  #get("/comments", { :controller => "comments", :action => "index" })
   
   
-  get("/comments/:path_id", { :controller => "comments", :action => "show" })
+  #get("/comments/:path_id", { :controller => "comments", :action => "show" })
   
   
   # UPDATE

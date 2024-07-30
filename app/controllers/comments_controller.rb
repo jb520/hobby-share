@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
+  before_action :set_comment, only: %i[ show update destroy ]
   def index
-    matching_comments = Comment.all
-
+    @comments = Comment.all
     @list_of_comments = matching_comments.order({ :created_at => :desc })
 
-    render({ :template => "comments/index" })
+    #render({ :template => "comments/index" })
   end
 
   def show
@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
 
     @the_comment = matching_comments.at(0)
 
-    render({ :template => "comments/show" })
+    #render({ :template => "comments/show" })
   end
 
   def create
@@ -25,9 +25,9 @@ class CommentsController < ApplicationController
 
     if the_comment.valid?
       the_comment.save
-      redirect_to("/comments", { :notice => "Comment created successfully." })
+      redirect_to("/posts/#{the_comment.post_id}", { :notice => "Comment created successfully." })
     else
-      redirect_to("/comments", { :alert => the_comment.errors.full_messages.to_sentence })
+      redirect_to("/posts/#{the_comment.post_id}", { :alert => the_comment.errors.full_messages.to_sentence })
     end
   end
 
@@ -54,5 +54,11 @@ class CommentsController < ApplicationController
     the_comment.destroy
 
     redirect_to("/comments", { :notice => "Comment deleted successfully."} )
+  end
+
+  private
+
+  def set_comment
+    @comment = comment.find(params[:id])
   end
 end
