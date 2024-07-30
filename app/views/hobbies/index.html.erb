@@ -31,56 +31,19 @@
 </div>
 
 <hr>
-<div>
-  <div>
-    <table border="1">
-      <tr>
-        <th>
-          ID
-        </th>
 
-        <th>
-          Name
-        </th>
-
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
-      </tr>
-
-      <% @list_of_hobbies.each do |a_hobby| %>
-      <tr>
-        <td>
-          <%= a_hobby.id %>
-        </td>
-
-        <td>
-          <%= a_hobby.name %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_hobby.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_hobby.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/hobbies/<%= a_hobby.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
-      <% end %>
-    </table>
+<div class="d-flex flex-wrap justify-content-between">
+  <% @list_of_hobbies.each do |a_hobby| %>
+  <div class="card my-3" style="width: 18rem;">
+    <!--<img src="..." class="card-img-top" alt="...">-->
+    <div class="card-body">
+      <h5 class="card-title"><%= a_hobby.name %></h5>
+      <p class="card-text">Some description.</p>
+      <a href="/hobbies/<%= a_hobby.id %>" class="btn btn-primary ">Go to posts</a>
+    </div>
   </div>
+  <% end %>
+  
 </div>
 
 <hr>
