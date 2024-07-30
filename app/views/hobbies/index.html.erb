@@ -1,0 +1,49 @@
+<div>
+  <div>
+    <h1>
+      List of all hobbies
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new hobby
+    </h2>
+
+    <form action="/insert_hobby" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <button>
+        Create hobby
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+
+<div class="d-flex flex-wrap justify-content-between">
+  <% @list_of_hobbies.each do |a_hobby| %>
+  <div class="card my-3" style="width: 18rem;">
+    <!--<img src="..." class="card-img-top" alt="...">-->
+    <div class="card-body">
+      <h5 class="card-title"><%= a_hobby.name %></h5>
+      <p class="card-text">Some description.</p>
+      <a href="/hobbies/<%= a_hobby.id %>" class="btn btn-primary ">Go to posts</a>
+    </div>
+  </div>
+  <% end %>
+  
+</div>
+
+<hr>
