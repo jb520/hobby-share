@@ -10,26 +10,20 @@ class PostsController < ApplicationController
 
   def show
     
-    # the_id = params.fetch("path_id")
-
-    # matching_posts = Post.where({ :id => the_id })
-
-    # @the_post = matching_posts.at(0)
-
-    # render({ :template => "posts/show" })
   end
 
   def create
-    the_post = Post.new
-    the_post.user_id = params.fetch("query_user_id")
-    the_post.hobby_id = params.fetch("query_hobby_id")
-    the_post.body = params.fetch("query_body")
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
 
-    if the_post.valid?
-      the_post.save
-      redirect_to("/hobbies/#{the_post.hobby_id}", { :notice => "Post created successfully." })
-    else
-      redirect_to("/hobbies/#{the_post.hobby_id}", { :alert => the_post.errors.full_messages.to_sentence })
+    respond_to do |format|
+      if @post.save
+        format.html { redirect_back fallback_location: root_path, notice: "Post was successfully created." }
+        format.json { render :show, status: :created, location: @post }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
     end
   end
 

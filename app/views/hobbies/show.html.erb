@@ -47,14 +47,15 @@
     <!--<img src="..." class="card-img-bottom" alt="...">-->
   </div>
   <% end %>
-   <form action="/insert_post" method="post">
+   <!--<form action="/insert_post" method="post">
     <input name="query_user_id" type="hidden" value="<%=current_user.id%>">
     <input name="query_hobby_id" type="hidden" value="<%=@hobby.id%>"> 
     <textarea id="body_box" name="query_body" rows="3"></textarea>
     <button>
         Create Post
     </button>
-  </form>
+  </form>-->
+  <%= render "posts/form", post: @hobby.posts.build%>
 
 
 <!--<div>

@@ -18,19 +18,8 @@ class CommentsController < ApplicationController
   end
 
   def create
-    # the_comment = Comment.new
-    # the_comment.user_id = params.fetch("query_user_id")
-    # the_comment.post_id = params.fetch("query_post_id")
-    # the_comment.body = params.fetch("query_body")
-
-    # if the_comment.valid?
-    #   the_comment.save
-    #   redirect_to("/posts/#{the_comment.post_id}", { :notice => "Comment created successfully." })
-    # else
-    #   redirect_to("/posts/#{the_comment.post_id}", { :alert => the_comment.errors.full_messages.to_sentence })
-    # end
-     @comment = Comment.new(comment_params)
-     @comment.user_id = current_user.id
+    @comment = Comment.new(comment_params)
+    @comment.user_id = current_user.id
 
     respond_to do |format|
       if @comment.save
