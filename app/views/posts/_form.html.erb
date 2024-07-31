@@ -1,0 +1,8 @@
+<%= form_with(model: post) do |form| %>
+  <%= form.hidden_field :hobby_id %>
+  <div>
+      <%= form.label :body, style: "display: block"%>
+      <%= form.text_field :body %>
+  </div>
+    <%= form.submit %>
+<% end %>

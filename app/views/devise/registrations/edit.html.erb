@@ -10,7 +10,7 @@
         <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
       <% end %>
 
-      <div><%= f.input :username, required: false %></div>
+      <%= f.input :username, required: false %>
 
       <%= f.input :password,
                   hint: "leave it blank if you don't want to change it",
@@ -36,3 +36,12 @@
 <div>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete %></div>
 
 <%= link_to "Back", :back %>
+
+<!--<form action="/update" method="patch">
+    <input name="query_user_email" value="<%=current_user.email%>">
+    <input name="query_username" value="<%=current_user.username%>"> 
+    
+    <button>
+        Update
+      </button>
+  </form>-->
