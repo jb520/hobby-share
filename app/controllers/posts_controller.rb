@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def show
-    @posts = Post.all
+    
     # the_id = params.fetch("path_id")
 
     # matching_posts = Post.where({ :id => the_id })
@@ -34,18 +34,13 @@ class PostsController < ApplicationController
   end
 
   def update
-    the_id = @post.id
-    the_post = Post.where({ :id => the_id }).at(0)
-
-    the_post.user_id = params.fetch("query_user_id")
-    the_post.hobby_id = params.fetch("query_hobby_id")
-    the_post.body = params.fetch("query_body")
-
-    if the_post.valid?
-      the_post.save
-      redirect_to("/posts/#{the_post.id}", { :notice => "Post updated successfully."} )
-    else
-      redirect_to("/posts/#{the_post.id}", { :alert => the_post.errors.full_messages.to_sentence })
+    
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to("/posts/#{@post.id}", notice: "Post updated successfully." ) }
+      else
+        format.html { redirect_to("/posts/#{@post.id}", alert: the_post.errors.full_messages.to_sentence )  }
+      end
     end
   end
 
@@ -53,11 +48,15 @@ class PostsController < ApplicationController
       
     @post.destroy
 
-    redirect_to("/posts", { :notice => "Post deleted successfully."} )
+    redirect_to("/hobbies/#{@post.hobby_id}", { :notice => "Post deleted successfully."} )
   end
 
   private
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def post_params
+      params.require(:post).permit(:image, :body, :likes_count, :hobby_id, :user_id)
     end
 end

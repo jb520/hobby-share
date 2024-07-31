@@ -18,16 +18,28 @@ class CommentsController < ApplicationController
   end
 
   def create
-    the_comment = Comment.new
-    the_comment.user_id = params.fetch("query_user_id")
-    the_comment.post_id = params.fetch("query_post_id")
-    the_comment.body = params.fetch("query_body")
+    # the_comment = Comment.new
+    # the_comment.user_id = params.fetch("query_user_id")
+    # the_comment.post_id = params.fetch("query_post_id")
+    # the_comment.body = params.fetch("query_body")
 
-    if the_comment.valid?
-      the_comment.save
-      redirect_to("/posts/#{the_comment.post_id}", { :notice => "Comment created successfully." })
-    else
-      redirect_to("/posts/#{the_comment.post_id}", { :alert => the_comment.errors.full_messages.to_sentence })
+    # if the_comment.valid?
+    #   the_comment.save
+    #   redirect_to("/posts/#{the_comment.post_id}", { :notice => "Comment created successfully." })
+    # else
+    #   redirect_to("/posts/#{the_comment.post_id}", { :alert => the_comment.errors.full_messages.to_sentence })
+    # end
+     @comment = Comment.new(comment_params)
+     @comment.user_id = current_user.id
+
+    respond_to do |format|
+      if @comment.save
+        format.html { redirect_back fallback_location: root_path, notice: "Comment was successfully created." }
+        format.json { render :show, status: :created, location: @comment }
+      else
+        format.html { render :new, status: :unprocessable_entity }
+        format.json { render json: @comment.errors, status: :unprocessable_entity }
+      end
     end
   end
 
@@ -60,5 +72,9 @@ class CommentsController < ApplicationController
 
   def set_comment
     @comment = comment.find(params[:id])
+  end
+
+  def comment_params
+    params.require(:comment).permit(:body, :post_id, :user_id)
   end
 end

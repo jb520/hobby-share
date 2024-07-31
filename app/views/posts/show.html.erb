@@ -1,11 +1,13 @@
-<div>
+
+<%= render @post %>
+<!--<div>
   <div>
     <h1>
       Post #<%= @post.id %> details
     </h1>
 
   <div class="card px-5 mx-5 d-flex">
-    <!--<img src="..." class="card-img-top" alt="...">-->
+    <img src="..." class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title"><img src="<%=@post.poster.image%>" class="pe-2" style="height: 2.5em; border-radius: 50px"><%=@post.poster.username%></h5>
       <p class="card-text py-2 px-5"><%=@post.body%></p>
@@ -22,7 +24,9 @@
       </div>
 
       <div>
-        <%= link_to 'Delete Post', post_path, :method => :delete %>
+        <%= link_to post_path, :method => :delete do%>
+          <i class="fa-solid fa-trash-can"></i>
+        <% end %>
         
       </div>
     </div>
@@ -38,56 +42,20 @@
       Edit post
     </h2>
 
-    <form action="/modify_post/<%= @post.id %>"  method="post" >
+
+    <%= form_with(model: @post) do |form| %>
       <div>
-        <label for="user_id_box">
-          User
-        </label>
-
-        <input type="text" id="user_id_box" name="query_user_id" value="<%= @post.user_id %>">
+        <%= form.label :body, style: "display: block"%>
+        <%= form.text_field :body%>
       </div>
+      <%= form.submit %>
+    <% end %>
 
-      <div>
-        <label for="hobby_id_box">
-          Hobby
-        </label>
-
-        <input type="text" id="hobby_id_box" name="query_hobby_id" value="<%= @post.hobby_id %>">
-      </div>
-
-      <div>
-        <label for="body_box">
-          Body
-        </label>
-
-        <textarea id="body_box" name="query_body"><%= @post.body %></textarea>
-      </div>
-
-      <div>
-        <label for="like_counter_box">
-          Like counter
-        </label>
-
-        <input type="text" id="like_counter_box" name="query_like_counter" value="<%= @post.like_counter %>">
-      </div>
-
-      <div>
-        <label for="image_box">
-          Image
-        </label>
-
-        <input type="text" id="image_box" name="query_image" value="<%= @post.image %>">
-      </div>
-
-      <button>
-        Update post
-      </button>
-    </form>
   </div>
 </div>
 
 <hr>
-<div class="d-flex justify-content-between"><h3>Comments</h3> <%= link_to 'new comment', insert_comment_path, :method => :post %></div>
+<div class="d-flex justify-content-between"><h3>Comments</h3> 
 <div class="container mx-5 py-2">
   <% @post.comments.all.each do |comment| %>
     <div class="card my-3">
@@ -95,7 +63,7 @@
         <p class="card-text"><%=comment.body%></p>
         <p class="card-text d-flex justify-content-between "><small><%=comment.poster.username%></small><small class="text-body-secondary"><%=time_ago_in_words(comment.created_at)%> ago</small></p>
       </div>
-    <!--<img src="..." class="card-img-bottom" alt="...">-->
+    <img src="..." class="card-img-bottom" alt="...">
     </div>
   <% end %>
   <form action="/insert_comment" method="post">
@@ -105,5 +73,9 @@
     <button>
         Create comment
       </button>
-  </form>
+  </form>-->
+  
+
+  <%= render "comments/form", comment: @post.comments.build%>
+
 </div>

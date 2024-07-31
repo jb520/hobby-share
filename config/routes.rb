@@ -3,29 +3,26 @@ Rails.application.routes.draw do
   
   devise_for :users
 
-  resources :hobbies
-  resources :posts
-  #resources :likes
-  resources :comments
+  
 
   # Routes for the Comment resource:
 
   # CREATE
-  post("/insert_comment", { :controller => "comments", :action => "create" })
+  #post("/insert_comment", { :controller => "comments", :action => "create" })
           
   # READ
   #get("/comments", { :controller => "comments", :action => "index" })
   
   
-  #get("/comments/:path_id", { :controller => "comments", :action => "show" })
+  #get("/comments/:id", { :controller => "comments", :action => "show" })
   
   
   # UPDATE
   
-  post("/modify_comment/:path_id", { :controller => "comments", :action => "update" })
+  post("/modify_comment/:id", { :controller => "comments", :action => "update" })
   
   # DELETE
-  get("/delete_comment/:path_id", { :controller => "comments", :action => "destroy" })
+  get("/delete_comment/:id", { :controller => "comments", :action => "destroy" })
 
   #------------------------------
 
@@ -38,15 +35,15 @@ Rails.application.routes.draw do
   # get("/hobbies", { :controller => "hobbies", :action => "index" })
   #get "/hobbies" => "hobby#index"
   
-  # get("/hobbies/:path_id", { :controller => "hobbies", :action => "show" })
+  # get("/hobbies/:id", { :controller => "hobbies", :action => "show" })
   #get "hobbies/:id" => "hobby#show" as: :hobby
   
   # UPDATE
   
-  post("/modify_hobby/:path_id", { :controller => "hobbies", :action => "update" })
+  post("/modify_hobby/:id", { :controller => "hobbies", :action => "update" })
   
   # DELETE
-  get("/delete_hobby/:path_id", { :controller => "hobbies", :action => "destroy" })
+  get("/delete_hobby/:id", { :controller => "hobbies", :action => "destroy" })
 
   #------------------------------
 
@@ -58,14 +55,14 @@ Rails.application.routes.draw do
   # READ
   #get("/posts", { :controller => "posts", :action => "index" })
   
-  #get("/posts/:path_id", { :controller => "posts", :action => "show" })
+  get("/posts/:id", { :controller => "posts", :action => "show" })
   
   # UPDATE
   
-  post("/modify_post/:path_id", { :controller => "posts", :action => "update" })
+  post("/modify_post/:id", { :controller => "posts", :action => "update" })
   
   # DELETE
-  get("/delete_post/:path_id", { :controller => "posts", :action => "destroy" })
+  get("/delete_post/:id", { :controller => "posts", :action => "destroy" })
 
   #------------------------------
 
@@ -77,17 +74,21 @@ Rails.application.routes.draw do
   # READ
   get("/likes", { :controller => "likes", :action => "index" })
   
-  get("/likes/:path_id", { :controller => "likes", :action => "show" })
+  get("/likes/:id", { :controller => "likes", :action => "show" })
   
   # UPDATE
   
-  post("/modify_like/:path_id", { :controller => "likes", :action => "update" })
+  post("/modify_like/:id", { :controller => "likes", :action => "update" })
   
   # DELETE
-  get("/delete_like/:path_id", { :controller => "likes", :action => "destroy" })
+  get("/delete_like/:id", { :controller => "likes", :action => "destroy" })
 
   #------------------------------
 
+  resources :hobbies
+  resources :posts
+  #resources :likes
+  resources :comments
   
 
   # This is a blank app! Pick your first screen, build out the RCAV, and go from there. E.g.:
