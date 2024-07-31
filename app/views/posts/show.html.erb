@@ -22,9 +22,8 @@
       </div>
 
       <div>
-        <a href="/delete_post/<%= @post.id %>">
-          Delete post
-        </a>
+        <%= link_to 'Delete Post', post_path, :method => :delete %>
+        
       </div>
     </div>
 

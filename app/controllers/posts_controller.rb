@@ -24,26 +24,22 @@ class PostsController < ApplicationController
     the_post.user_id = params.fetch("query_user_id")
     the_post.hobby_id = params.fetch("query_hobby_id")
     the_post.body = params.fetch("query_body")
-    the_post.like_counter = params.fetch("query_like_counter")
-    the_post.image = params.fetch("query_image")
 
     if the_post.valid?
       the_post.save
-      redirect_to("/posts", { :notice => "Post created successfully." })
+      redirect_to("/hobbies/#{the_post.hobby_id}", { :notice => "Post created successfully." })
     else
-      redirect_to("/posts", { :alert => the_post.errors.full_messages.to_sentence })
+      redirect_to("/hobbies/#{the_post.hobby_id}", { :alert => the_post.errors.full_messages.to_sentence })
     end
   end
 
   def update
-    the_id = params.fetch("path_id")
+    the_id = @post.id
     the_post = Post.where({ :id => the_id }).at(0)
 
     the_post.user_id = params.fetch("query_user_id")
     the_post.hobby_id = params.fetch("query_hobby_id")
     the_post.body = params.fetch("query_body")
-    the_post.like_counter = params.fetch("query_like_counter")
-    the_post.image = params.fetch("query_image")
 
     if the_post.valid?
       the_post.save
@@ -54,10 +50,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    the_id = params.fetch("path_id")
-    the_post = Post.where({ :id => the_id }).at(0)
-
-    the_post.destroy
+      
+    @post.destroy
 
     redirect_to("/posts", { :notice => "Post deleted successfully."} )
   end
