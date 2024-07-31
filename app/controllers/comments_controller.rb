@@ -2,19 +2,11 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show update destroy ]
   def index
     @comments = Comment.all
-    @list_of_comments = matching_comments.order({ :created_at => :desc })
-
-    #render({ :template => "comments/index" })
+    @list_of_comments = @comments.order({ :created_at => :desc })
   end
 
   def show
-    the_id = params.fetch("path_id")
-
-    matching_comments = Comment.where({ :id => the_id })
-
-    @the_comment = matching_comments.at(0)
-
-    #render({ :template => "comments/show" })
+    
   end
 
   def create

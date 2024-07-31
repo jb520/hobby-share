@@ -1,9 +1,9 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show update destroy ]
   def index
-    matching_posts = Post.all
+    @posts = Post.all
 
-    @list_of_posts = matching_posts.order({ :created_at => :desc })
+    @list_of_posts = @posts.order({ :created_at => :desc })
 
     render({ :template => "posts/index" })
   end
