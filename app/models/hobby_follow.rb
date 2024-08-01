@@ -17,7 +17,7 @@ class HobbyFollow < ApplicationRecord
     return matching_user
   end
 
-  def followed_hobby
+  def followed
     matching_hobby = Hobby.where({ :id => self.hobby_id }).at(0)
     return matching_hobby
   end
