@@ -9,4 +9,5 @@
 #
 class Hobby < ApplicationRecord
   has_many  :posts, class_name: "Post", foreign_key: "hobby_id", dependent: :destroy
+  has_many :hobby_follows, class_name: "HobbyFollow", foreign_key: "hobby_id", dependent: :destroy
 end

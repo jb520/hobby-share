@@ -29,6 +29,7 @@
   </div>
 </div>
 
+<%= render "hobby_follows/form", hobby_follow: @hobby.hobby_follows.build%>
 <%= render "posts/form", post: @hobby.posts.build%>
 
   <% @hobby.posts.all.each do |post| %>
