@@ -1,0 +1,13 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @hobby_follow %>
+
+<div>
+  <%= link_to "Edit this hobby follow", edit_hobby_follow_path(@hobby_follow) %> |
+  <%= link_to "Back to hobby follows", hobby_follows_path %>
+
+  <%= button_to "Destroy this hobby follow", @hobby_follow, method: :delete %>
+</div>
+
+<div>
+</div>

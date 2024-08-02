@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :hobby_follows
   root "users#dashboard"
   
   devise_for :users

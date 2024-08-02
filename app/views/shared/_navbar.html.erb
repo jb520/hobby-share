@@ -1,16 +1,20 @@
-<nav class="navbar navbar-expand-lg bg-light mb-2 px-5 d-flex justify-content-between">
-  <%= link_to 'Hobbies', hobbies_path, :class => "nav-link d-flex justify-content-start"%>
-  <ul class="navbar-nav">
-    <% if user_signed_in? %>
-      <a class="nav-link" href="/"><i class="fa-solid fa-house"></i></a>
-      <a class="nav-link" href="/users/edit"><i class="fa-solid fa-gear"></i></a>
-      <!--<a class="nav-link" href="/users/sign_out">Sign-out</a>-->
-      <%= link_to destroy_user_session_path, :method => :delete, :class => "nav-link" do%>
-        <i class="fa-solid fa-right-from-bracket"></i>
+<nav class="navbar navbar-expand-md bg-light mb-2 px-5 d-flex justify-content-between">
+  <div>
+    <%= link_to 'Hobbies', hobbies_path, :class => "nav-link"%>
+  </div>
+  <div class="collapse navbar-collapse d-flex justify-content-end">
+    <ul class="navbar-nav">
+      <% if user_signed_in? %>
+        <a class="nav-link" href="/"><i class="fa-solid fa-house"></i></a>
+        <a class="nav-link" href="/users/edit"><i class="fa-solid fa-gear"></i></a>
+        <!--<a class="nav-link" href="/users/sign_out">Sign-out</a>-->
+        <%= link_to destroy_user_session_path, :method => :delete, :class => "nav-link" do%>
+          <i class="fa-solid fa-right-from-bracket"></i>
+        <% end %>
+      <% else %>
+        <a class="nav-link" href="/users/sign_in">Sign-in</a>
+        <a class="nav-link" href="/users/sign_up">Sign-up</a>
       <% end %>
-    <% else %>
-      <a class="nav-link" href="/users/sign_in">Sign-in</a>
-      <a class="nav-link" href="/users/sign_up">Sign-up</a>
-    <% end %>
-  </ul>
+    </ul>
+  </div>
 </nav>

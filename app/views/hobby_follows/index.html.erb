@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Hobby follows</h1>
+
+<div id="hobby_follows">
+  <% @hobby_follows.each do |hobby_follow| %>
+    <%= render hobby_follow %>
+    <p>
+      <%= link_to "Show this hobby follow", hobby_follow %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New hobby follow", new_hobby_follow_path %>

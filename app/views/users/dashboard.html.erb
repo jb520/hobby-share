@@ -1,10 +1,38 @@
-<div class="container mx-1">
-  <h2>Dashboard</h2>
+<div class="d-flex container mx-1">
+  <div class="col">
+    <h2>Dashboard</h2>
 
-  <div class="card px-2 d-flex align-self-stretch" style="width: 16rem;">
-    <img src="<%= @user.image %>" class="my-2 rounded-circle">
-    <span class="d-flex justify-content-between"><%= @user.username %> <i class="fa-regular fa-pen-to-square"></i></span>
-    <hr>
-    <%= @user.bio %>
+    <div class="card px-2 d-flex align-self-stretch" style="width: 16rem;">
+      <img src="<%= @user.image %>" class="my-2 rounded-circle">
+      <span class="d-flex justify-content-between"><%= @user.username %> <i class="fa-regular fa-pen-to-square"></i></span>
+      <hr>
+      <%= @user.bio %>
+    </div>
   </div>
+
+  <div class="container col">
+    <h3>Feed</h3>
+
+    <div class="">
+      <% @user.followed_hobbies.each do |hobby| %>
+        <% hobby.posts.order!(created_at: :desc).each do |post|%>
+          <div class="card d-flex" >
+            <div class="card-body">
+              <span class="d-flex justify-content-end px-2">
+                <%= link_to post_path(post.id) do%>
+                <i class="fa-solid fa-chevron-right"></i>
+                <% end %>
+              </span>
+              <span class="d-flex align-items-center">
+              <img src="<%=post.poster.image%>" class="mx-3" style="height: 2.5em; border-radius: 50px">
+              <p class="card-text ps-3"><%=post.body%></p>
+              </span>
+              <p class="card-text d-flex justify-content-between text-center"><small><%=post.poster.username%></small><small class="text-body-secondary"><%=time_ago_in_words(post.created_at)%> ago</small></p>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
 </div>

@@ -28,6 +28,11 @@ class User < ApplicationRecord
   has_many  :likes, class_name: "Like", foreign_key: "user_id", dependent: :destroy
   has_many  :posts, class_name: "Post", foreign_key: "user_id", dependent: :destroy
   has_many  :comments, class_name: "Comment", foreign_key: "user_id", dependent: :destroy
+  has_many :hobby_follows, class_name: "HobbyFollow", foreign_key: "user_id", dependent: :destroy
+
+  has_many :followed_hobbies, through: :hobby_follows, source: :hobby
 
   validates :username, presence: true, uniqueness: true
+
+  
 end
