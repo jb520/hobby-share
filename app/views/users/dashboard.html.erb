@@ -1,17 +1,20 @@
 <div class="d-flex container mx-1">
   <div class="col">
-    <h2>Dashboard</h2>
+    <h2 class="accent-text">Dashboard</h2>
 
-    <div class="card px-2 d-flex align-self-stretch" style="width: 16rem;">
+    <div class="card px-2 d-flex" style="width: 16rem;">
       <img src="<%= @user.image %>" class="my-2 rounded-circle">
       <span class="d-flex justify-content-between"><%= @user.username %> <i class="fa-regular fa-pen-to-square"></i></span>
       <hr>
       <%= @user.bio %>
     </div>
+    <div class="text-center my-2">
+    <%= link_to 'Browse Hobbies', hobbies_path, :class => "cool-btn nav-link" %>
+    </div>
   </div>
 
-  <div class="container col">
-    <h3>Feed</h3>
+  <div class="container">
+    <h3 class="accent-text">Feed</h3>
 
     <div class="">
       <% @user.followed_hobbies.each do |hobby| %>
