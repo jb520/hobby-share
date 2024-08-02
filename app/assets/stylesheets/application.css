@@ -14,5 +14,43 @@
  *= require_self
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300&family=Varela+Round&display=swap');
+ .righteous-regular {
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
 
+
+.rubik {
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.better-colors {
+  background-color: #F4F4F4;
+  text: #0A0F14;
+  font-family: "Rubik", sans-serif;
+}
+
+.nav-colors {
+  color: #756C67;
+}
+
+.accent-text {
+  color: #756C67;
+  text-shadow: 1px 1px #f4f4f4;
+}
+
+.cool-btn {
+  border: 0px;
+  border-radius: 15px;
+  padding: 5px 7px;
+  background-color: #756C67;
+  color: #f4f4f4;
+}
+
+.cool-btn:hover {
+  background-color: #887e78;
+  color: #f4f4f4;
+}
