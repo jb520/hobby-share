@@ -28,29 +28,46 @@
 }
 
 .better-colors {
-  background-color: #F4F4F4;
-  text: #0A0F14;
+  background-color: #000000;
+  color: #ffffff;
   font-family: "Rubik", sans-serif;
 }
 
 .nav-colors {
-  color: #756C67;
+  color: #EDEFEB;
+}
+
+.nav-colors:hover {
+  color: #97b3b7;
 }
 
 .accent-text {
-  color: #756C67;
-  text-shadow: 1px 1px #f4f4f4;
+  color: #879EA1;
+}
+
+.link-color {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.link-color:hover {
+  color:#97b3b7;
+  text-decoration: none;
 }
 
 .cool-btn {
   border: 0px;
   border-radius: 15px;
   padding: 5px 7px;
-  background-color: #756C67;
-  color: #f4f4f4;
+  background-color: #879EA1;
+  color: #EDEFEB;
 }
 
 .cool-btn:hover {
-  background-color: #887e78;
-  color: #f4f4f4;
+  background-color: #97b3b7;
+  color: #EDEFEB;
+}
+
+card-accent {
+  border: 1px solid rgba(255, 255, 255, 1)
 }
