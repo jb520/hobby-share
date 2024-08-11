@@ -26,7 +26,7 @@ class HobbyFollowsController < ApplicationController
 
     respond_to do |format|
       if @hobby_follow.save
-        format.html { redirect_to root_path, notice: "Hobby follow was successfully created." }
+        format.html { redirect_to hobby_path(@hobby_follow.hobby_id), notice: "Hobby follow was successfully created." }
         format.json { render :show, status: :created, location: @hobby_follow }
       else
         format.html { render :new, status: :unprocessable_entity }

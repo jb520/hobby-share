@@ -6,7 +6,7 @@
     <ul class="navbar-nav">
       <% if user_signed_in? %>
         <a class="nav-link " href="/users/edit"><i class="fa-solid fa-gear"></i></a>
-        <%= link_to destroy_user_session_path, :method => :delete, :class => "nav-link nav-colors" do%>
+        <%= link_to destroy_user_session_path, :method => :delete, :class => "nav-link" do%>
           <i class="fa-solid fa-right-from-bracket"></i>
         <% end %>
       <% else %>
