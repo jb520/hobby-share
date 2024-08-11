@@ -1,35 +1,26 @@
 <div>
   <div>
-    <h1>
-      <%= @hobby.name %> 
-    </h1>
-
+    <div class="d-flex flex-wrap align-items-center">
+      <h1 class="ysabeau-sc me-2">
+        <%= @hobby.name.downcase %> 
+      </h1>
+      <%= render "hobby_follows/form", hobby_follow: @hobby.hobby_follows.build %>
+    </div>
     <div>
-      <div>
-        <a href="<%= hobbies_path %>">
-          Go back
-        </a>
-      </div>
+      <%= link_to hobbies_path, :class => "d-flex flex wrap link-color ysabeau-sc" do %>
+        <i class="fa-solid fa-chevron-left align-self-center mx-2"></i> <h4>hobbies</h4>
+      <% end %>
 
       <!--<div>
         <a href="/delete_hobby/<%= @hobby.id %>">
           Delete hobby
         </a>-->
-      </div>
+      
     </div>
-
-    <dl>
-      <dt>
-        Name
-      </dt>
-      <dd>
-        <%= @hobby.name %>
-      </dd>
-    </dl>
   </div>
 </div>
 
-<%= render "hobby_follows/form", hobby_follow: @hobby.hobby_follows.build%>
+
 <%= render "posts/form", post: @hobby.posts.build%>
 
   <% @hobby.posts.all.each do |post| %>

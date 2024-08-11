@@ -78,6 +78,11 @@ hr {
   transition: 0.2s;
 }
 
+.remove-def {
+  border: none;
+  background: none;
+}
+
 .sidebar {
   border-right: solid 1px #090A07;
   height: 100%;
