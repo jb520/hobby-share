@@ -1,14 +1,22 @@
 <p style="color: green"><%= notice %></p>
 
-<h1>Hobby follows</h1>
+<h2 class="ysabeau-sc">My Hobbies</h2>
 
-<div id="hobby_follows">
+
+<div class="d-flex flex-wrap mx-2">
   <% @hobby_follows.each do |hobby_follow| %>
-    <%= render hobby_follow %>
-    <p>
-      <%= link_to "Show this hobby follow", hobby_follow %>
-    </p>
+  <div class="card my-3 better-colors mx-3" style="width: 18rem;">
+      <!--<img src="..." class="card-img-top" alt="...">-->
+    <div class="card-body">
+      <h5 class="card-title"><%= hobby_follow.followed.name %></h5>
+      <p class="card-text">Some description.</p>
+      <div class="d-flex justify-content-between">
+        <a href="/hobbies/<%= hobby_follow.hobby_id %>" class="d-flex link-color align-items-center">Go to posts <i class="fa-solid fa-chevron-right mx-1"></i></a>
+        <%= link_to hobby_follow_path(hobby_follow), :method => :delete, :class => "align-self-center link-color" do%>
+            <i class="fa-solid fa-trash-can"></i>
+          <% end %>  
+      </div>
+    </div>
+  </div>
   <% end %>
 </div>
-
-<%= link_to "New hobby follow", new_hobby_follow_path %>

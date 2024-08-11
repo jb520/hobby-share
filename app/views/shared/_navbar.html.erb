@@ -1,17 +1,17 @@
-<nav class="navbar navbar-expand-md mb-2 px-5 d-flex justify-content-between nav-colors">
+<nav class="navbar navbar-expand-md mb-2 px-5 d-flex justify-content-between nav-colors ysabeau-sc">
   <div>
-    <a class="navbar-brand nav-colors" href="/">HobbyShare</a>
+    <a class="navbar-brand" href="/">HobbyShare</a>
   </div>
   <div class="collapse navbar-collapse d-flex justify-content-end">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
-        <a class="nav-link nav-colors" href="/users/edit"><i class="fa-solid fa-gear"></i></a>
+        <a class="nav-link " href="/users/edit"><i class="fa-solid fa-gear"></i></a>
         <%= link_to destroy_user_session_path, :method => :delete, :class => "nav-link nav-colors" do%>
           <i class="fa-solid fa-right-from-bracket"></i>
         <% end %>
       <% else %>
-        <a class="nav-link nav-colors" href="/users/sign_in">Sign-in</a>
-        <a class="nav-link nav-colors" href="/users/sign_up">Sign-up</a>
+        <a class="nav-link" href="/users/sign_in">Sign-in</a>
+        <a class="nav-link" href="/users/sign_up">Sign-up</a>
       <% end %>
     </ul>
   </div>
