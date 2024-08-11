@@ -24,6 +24,7 @@
 .rubik {
   font-family: "Rubik", sans-serif;
   font-optical-sizing: auto;
+  font-weight: 200;
   font-style: normal;
 }
 
@@ -34,9 +35,13 @@
   font-style: normal;
 }
 
+hr {
+  color:#554234;
+}
+
 .better-colors {
   background: #e0cfc3;
-  color: #ffffff;
+  color: #090A07;
   font-family: "Rubik", sans-serif;
 }
 
@@ -54,7 +59,7 @@
 }
 
 .link-color {
-  color: #ffffff;
+  color: #554234;
   text-decoration: none;
 }
 

@@ -11,7 +11,7 @@
       <h5 class="card-title"><%= hobby_follow.followed.name %></h5>
       <p class="card-text">Some description.</p>
       <div class="d-flex justify-content-between">
-        <a href="/hobbies/<%= hobby_follow.hobby_id %>" class="d-flex link-color align-items-center">Go to posts <i class="fa-solid fa-chevron-right mx-1"></i></a>
+        <a href="/hobbies/<%= hobby_follow.hobby_id %>" class="d-flex link-color align-items-center">Go to posts <i class="fa-solid fa-chevron-right mx-2"></i></a>
         <%= link_to hobby_follow_path(hobby_follow), :method => :delete, :class => "align-self-center link-color" do%>
             <i class="fa-solid fa-trash-can"></i>
           <% end %>  
