@@ -28,14 +28,4 @@
     </div>
 </div>
 
-<div class="d-flex justify-content-between"><h3>Comments</h3> 
-<div class="container mx-5 py-2">
-  <% @post.comments.all.each do |comment| %>
-    <div class="card my-3 better-colors border-bottom border-left">
-      <div class="card-body">
-        <p class="card-text"><%=comment.body%></p>
-        <p class="card-text d-flex justify-content-between "><small><%=comment.poster.username%></small><small class="accent-text"><%=time_ago_in_words(comment.created_at)%> ago</small></p>
-      </div>
-    </div>
-  <% end %>
-</div>
+
