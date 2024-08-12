@@ -1,36 +1,49 @@
-<div class="d-flex container mx-1">
-  <div class="col">
-    <h2 class="accent-text">Dashboard</h2>
+<div class="d-flex container mx-1 py-3">
+  <div class="col mx-1 sidebar">
+    <h3 class="accent-text ysabeau-sc">Dashboard</h3>
 
-    <div class="card px-2 d-flex" style="width: 16rem;">
+    <!--<div class="card px-2 d-flex" style="width: 16rem;">
       <img src="<%= @user.image %>" class="my-2 rounded-circle">
-      <span class="d-flex justify-content-between"><%= @user.username %> <i class="fa-regular fa-pen-to-square"></i></span>
+      <span class="d-flex justify-content-between"><%= @user.username %> 
+      <i class="fa-regular fa-pen-to-square"></i>
+      </span>
       <hr>
       <%= @user.bio %>
-    </div>
-    <div class="text-center my-2">
-    <%= link_to 'Browse Hobbies', hobbies_path, :class => "cool-btn nav-link" %>
+    </div>-->
+    <div class="d-flex flex-column align-items-start">
+      <div class="text-center my-3 py-1">
+        <%= link_to 'Browse Hobbies', hobbies_path, :class => "cool-btn nav-link" %>
+      </div>
+      <div class="text-center my-3 py-1">
+        <%= link_to 'Manage Hobbies', hobby_follows_path, :class => "cool-btn nav-link" %>
+      </div>
+      <div class="text-center my-3 py-1">
+        <%= link_to 'Likes', likes_path, :class => "cool-btn nav-link" %>
+      </div>
     </div>
   </div>
 
-  <div class="container">
-    <h3 class="accent-text">Feed</h3>
+  <div class="container  mx-5">
+    <h3 class="accent-text ysabeau-sc">Feed</h3>
 
-    <div class="">
-      <% @user.followed_hobbies.each do |hobby| %>
+    <div>
+      <% @user.followed_hobbies.order!(updated_at: :desc).each do |hobby| %>
         <% hobby.posts.order!(created_at: :desc).each do |post|%>
-          <div class="card d-flex" >
+          <div class="card d-flex my-3 better-colors post-border" >
             <div class="card-body">
               <span class="d-flex justify-content-end px-2">
-                <%= link_to post_path(post.id) do%>
+                <%= link_to post_path(post.id), :class => "link-color" do %>
                 <i class="fa-solid fa-chevron-right"></i>
                 <% end %>
               </span>
-              <span class="d-flex align-items-center">
-              <img src="<%=post.poster.image%>" class="mx-3" style="height: 2.5em; border-radius: 50px">
-              <p class="card-text ps-3"><%=post.body%></p>
+              <div class="d-flex align-items-center">
+              <img src="<%=post.poster.image%>" class="mx-2 post-img">
+              <span>
+                <p style=""><%=post.poster.username%></p>
+                <p class="card-text ps-3"><%=post.body%></p>
               </span>
-              <p class="card-text d-flex justify-content-between text-center"><small><%=post.poster.username%></small><small class="text-body-secondary"><%=time_ago_in_words(post.created_at)%> ago</small></p>
+              </div>
+              <p class="card-text d-flex justify-content-end"><small class="accent-text"><%=time_ago_in_words(post.created_at)%> ago</small></p>
             </div>
           </div>
         <% end %>

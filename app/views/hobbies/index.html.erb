@@ -1,8 +1,8 @@
 <div>
   <div>
-    <h1>
-      List of all hobbies
-    </h1>
+    <h2 class="ysabeau-sc">
+      hobbies
+    </h2>
   </div>
 </div>
 
@@ -23,7 +23,7 @@
         <input type="text" id="name_box" name="query_name">
       </div>
 
-      <button>
+      <button class="cool-btn">
         Create hobby
       </button>
     </form>
@@ -32,18 +32,15 @@
 
 <hr>
 
-<div class="d-flex flex-wrap justify-content-between">
+<div class="d-flex flex-wrap mx-2">
   <% @list_of_hobbies.each do |a_hobby| %>
-  <div class="card my-3" style="width: 18rem;">
+  <div class="card my-3 mx-3 better-colors post-border" style="width: 18rem;">
     <!--<img src="..." class="card-img-top" alt="...">-->
-    <div class="card-body">
+    <div class="card-body ysabeau-sc">
       <h5 class="card-title"><%= a_hobby.name %></h5>
-      <p class="card-text">Some description.</p>
-      <a href="/hobbies/<%= a_hobby.id %>" class="btn btn-primary ">Go to posts</a>
+      <p class="card-text rubik">Some description.</p>
+      <a href="/hobbies/<%= a_hobby.id %>" class="d-flex link-color align-items-center">Go to posts <i class="fa-solid fa-chevron-right mx-2"></i></a>
     </div>
   </div>
   <% end %>
-  
 </div>
-
-<hr>

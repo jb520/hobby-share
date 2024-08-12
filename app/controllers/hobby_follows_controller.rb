@@ -26,7 +26,7 @@ class HobbyFollowsController < ApplicationController
 
     respond_to do |format|
       if @hobby_follow.save
-        format.html { redirect_to hobby_follow_url(@hobby_follow), notice: "Hobby follow was successfully created." }
+        format.html { redirect_to hobby_path(@hobby_follow.hobby_id), notice: "Hobby follow was successfully created." }
         format.json { render :show, status: :created, location: @hobby_follow }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,7 +39,7 @@ class HobbyFollowsController < ApplicationController
   def update
     respond_to do |format|
       if @hobby_follow.update(hobby_follow_params)
-        format.html { redirect_to hobby_follow_url(@hobby_follow), notice: "Hobby follow was successfully updated." }
+        format.html { redirect_to "users#dashboard", notice: "Hobby follow was successfully updated." }
         format.json { render :show, status: :ok, location: @hobby_follow }
       else
         format.html { render :edit, status: :unprocessable_entity }

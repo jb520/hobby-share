@@ -33,6 +33,7 @@ class User < ApplicationRecord
   has_many :followed_hobbies, through: :hobby_follows, source: :hobby
 
   validates :username, presence: true, uniqueness: true
+  validates :image, presence: true
 
   
 end
