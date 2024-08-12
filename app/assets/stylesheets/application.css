@@ -40,7 +40,7 @@ hr {
 }
 
 .better-colors {
-  background: #e0cfc3;
+  background: #fbf7f5;
   color: #090A07;
   font-family: "Rubik", sans-serif;
 }
@@ -91,7 +91,7 @@ hr {
 .post-img {
   width: 10%;
   height: auto; 
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .post-border {
