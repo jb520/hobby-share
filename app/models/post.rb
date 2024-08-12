@@ -17,6 +17,8 @@ class Post < ApplicationRecord
   has_many  :likes, class_name: "Like", foreign_key: "post_id", dependent: :destroy
   has_many  :comments, class_name: "Comment", foreign_key: "post_id", dependent: :destroy
 
+  has_rich_text :content
+
   def poster
     matching_user = User.where({ :id => self.user_id }).at(0)
     return matching_user

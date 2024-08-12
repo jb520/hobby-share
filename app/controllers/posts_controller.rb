@@ -38,6 +38,10 @@ class PostsController < ApplicationController
     end
   end
 
+  def edit
+    @post = Post.find(params[:id])
+  end
+
   def destroy
       
     @post.destroy
@@ -51,6 +55,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:image, :body, :likes_count, :hobby_id, :user_id)
+      params.require(:post).permit(:image, :likes_count, :hobby_id, :user_id, :content)
     end
 end
