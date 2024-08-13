@@ -5,7 +5,7 @@
       <img src="<%=@post.poster.image%>" class="border-rounded" style="width: 3em">
       <h5 class="card-title align-self-center"><%=@post.poster.username%></h5>
     </div>
-    <p class="card-text py-2 px-5"><%=@post.body%></p>
+    <p class="card-text py-2 px-5"><%=@post.content%></p>
     <p class="card-text d-flex justify-content-end"><small class="d-flex align-self-center accent-text"><%= time_ago_in_words(@post.created_at) %> ago</small></p>
     </div>
     <div class="d-flex">
@@ -15,22 +15,17 @@
         </a>
       </div>
 
+      <div  class="me-3">
+        <%= link_to edit_post_path(@post), :class => "link-color" do%>
+          <i class="fa-regular fa-pen-to-square fa-lg"></i>
+        <% end %>  
+      </div>
       <div>
         <%= link_to post_path, :method => :delete, :class => "link-color" do%>
-          <i class="fa-solid fa-trash-can"></i>
+          <i class="fa-solid fa-trash-can fa-lg"></i>
         <% end %>  
       </div>
     </div>
 </div>
 
-<div class="d-flex justify-content-between"><h3>Comments</h3> 
-<div class="container mx-5 py-2">
-  <% @post.comments.all.each do |comment| %>
-    <div class="card my-3 better-colors border-bottom border-left">
-      <div class="card-body">
-        <p class="card-text"><%=comment.body%></p>
-        <p class="card-text d-flex justify-content-between "><small><%=comment.poster.username%></small><small class="accent-text"><%=time_ago_in_words(comment.created_at)%> ago</small></p>
-      </div>
-    </div>
-  <% end %>
-</div>
+

@@ -33,7 +33,7 @@
         </span>
         <span class="d-flex align-items-center">
         <img src="<%=post.poster.image%>" class="mx-3" style="height: 2.5em; border-radius: 50px">
-        <p class="card-text ps-3"><%=post.body%></p>
+        <p class="card-text ps-3 trix-content"><%=post.content%></p>
         </span>
         <p class="card-text d-flex justify-content-between text-center"><small><%=post.poster.username%></small><small class="accent-text"><%=time_ago_in_words(post.created_at)%> ago</small></p>
       </div>

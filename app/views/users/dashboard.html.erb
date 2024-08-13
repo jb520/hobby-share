@@ -12,13 +12,13 @@
     </div>-->
     <div class="d-flex flex-column align-items-start">
       <div class="text-center my-3 py-1">
-        <%= link_to 'Browse Hobbies', hobbies_path, :class => "cool-btn nav-link" %>
+        <%= link_to 'Browse Hobbies', hobbies_path, :class => "cool-btn nav-link rubik" %>
       </div>
       <div class="text-center my-3 py-1">
-        <%= link_to 'Manage Hobbies', hobby_follows_path, :class => "cool-btn nav-link" %>
+        <%= link_to 'Manage Hobbies', hobby_follows_path, :class => "cool-btn nav-link rubik" %>
       </div>
       <div class="text-center my-3 py-1">
-        <%= link_to 'Likes', likes_path, :class => "cool-btn nav-link" %>
+        <%= link_to 'Likes', likes_path, :class => "cool-btn nav-link rubik" %>
       </div>
     </div>
   </div>
@@ -39,11 +39,11 @@
               <div class="d-flex align-items-center">
               <img src="<%=post.poster.image%>" class="mx-2 post-img">
               <span>
-                <p style=""><%=post.poster.username%></p>
-                <p class="card-text ps-3"><%=post.body%></p>
+                <p class="rubik"><%=post.poster.username%></p>
+                <p class="card-text ps-3 rubik"><%=post.content%></p>
               </span>
               </div>
-              <p class="card-text d-flex justify-content-end"><small class="accent-text"><%=time_ago_in_words(post.created_at)%> ago</small></p>
+              <p class="card-text d-flex justify-content-end"><small class="accent-text rubik"><%=time_ago_in_words(post.created_at)%> ago</small></p>
             </div>
           </div>
         <% end %>
