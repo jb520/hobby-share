@@ -39,6 +39,10 @@ hr {
   color:#554234;
 }
 
+.spacing {
+  line-height: 1.6;
+}
+
 .better-colors {
   background: #fbf7f5;
   color: #090A07;
