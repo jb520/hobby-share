@@ -3,7 +3,7 @@ class HobbyFollowsController < ApplicationController
 
   # GET /hobby_follows or /hobby_follows.json
   def index
-    @hobby_follows = HobbyFollow.all
+    @hobby_follows = current_user.my_hobbies
   end
 
   # GET /hobby_follows/1 or /hobby_follows/1.json

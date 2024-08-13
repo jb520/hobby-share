@@ -21,4 +21,5 @@ class HobbyFollow < ApplicationRecord
     matching_hobby = Hobby.where({ :id => self.hobby_id }).at(0)
     return matching_hobby
   end
+
 end
