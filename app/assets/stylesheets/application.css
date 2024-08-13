@@ -44,7 +44,7 @@ hr {
 }
 
 .better-colors {
-  background: #fbf7f5;
+  background: #ffefd5;
   color: #090A07;
   font-family: "Rubik", sans-serif;
 }
@@ -80,6 +80,18 @@ hr {
   border-bottom: solid 1px #090A07;
   color:#090A07;
   transition: 0.2s;
+}
+
+.hover-1 {
+  background-image: linear-gradient(#554234,#554234);
+  padding: 10px;
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  transition: .5s;
+}
+.hover-1:hover {
+  background-size: 100% 100%;
+  color:#ffffff;
 }
 
 .remove-def {
