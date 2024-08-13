@@ -22,4 +22,6 @@ class HobbyFollow < ApplicationRecord
     return matching_hobby
   end
 
+  
+
 end
