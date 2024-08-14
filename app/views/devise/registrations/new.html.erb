@@ -15,7 +15,7 @@
 
   <div class="field rubik my-3">
     <%= f.label :image %><br />
-    <%= f.text_field :image, autofocus: true, autocomplete: "image", placeholder: "Image url" %>
+    <%= f.file_field :image %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>

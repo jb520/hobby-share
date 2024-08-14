@@ -23,8 +23,8 @@
   <% end %>
 
   <div class="field rubik my-3">
-    <%= f.label :new_password %> <small>(leave blank if you don't want to change it)</small><br />
-    <%= f.password_field :password, autocomplete: "new-password", placeholder: "#{@minimum_password_length} characters minimum" %>
+    <%= f.label :change_your_password %> <small><i><%=@minimum_password_length%> characters minimum</i></small><br />
+    <%= f.password_field :password, autocomplete: "new-password", placeholder: "New password" %>
   </div>
 
   <div class="field rubik my-3">
@@ -33,7 +33,7 @@
   </div>
 
   <div class="field rubik my-2">
-    <%= f.label :password %> <small>(we need your current password to confirm your changes)</small><br />
+    <%= f.label :save_changes %> <br />
     <%= f.password_field :current_password, autocomplete: "current-password", placeholder: "Current password" %>
   </div>
 
