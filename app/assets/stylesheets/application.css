@@ -144,3 +144,33 @@ hr {
   align-items:center;
   text-align:center;*/
 }
+
+/*landing page*/
+
+.hero-div {
+  display: block;
+  max-width: 45vw;
+  border-top: solid 0.5px;
+  border-bottom: solid 0.5px;
+}
+
+.hero-text {
+  font-size: 5vw;
+  padding: 45px;
+  letter-spacing: 2px;
+  line-height: 1.6;
+}
+
+.hero-img {
+  max-width: 50vw;
+  height: 400px;
+  filter:  blur(0.75px) contrast(90%) brightness(110%);
+}
+
+.blurb {
+  max-width: 65vw;
+  border-left: solid 0.5px;
+  border-right: solid 0.5px;
+  line-height: 1.6;
+  letter-spacing: 1px;
+}
