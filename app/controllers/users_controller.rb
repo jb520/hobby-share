@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user
+  before_action :set_user, :user_params
   # def dashboard
   #   feed_hobby = @user.followed_hobbies
   #   feed_posts = feed_hobby.each do |hobby|
@@ -23,6 +23,10 @@ class UsersController < ApplicationController
     else
       @user = current_user
     end
+  end
+
+  def user_params
+    params.permit(:image)
   end
 
 end
