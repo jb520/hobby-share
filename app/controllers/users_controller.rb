@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   before_action :set_user
   # def dashboard
-  #   @user = current_user
+  #   feed_hobby = @user.followed_hobbies
+  #   feed_posts = feed_hobby.each do |hobby|
+  #     hobby.posts.all
+  #   end
+  #   @feed = feed_posts.order(updated_at: :desc)
   # end
   # 
   def update
