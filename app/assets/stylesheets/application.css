@@ -163,8 +163,9 @@ hr {
 
 .hero-img {
   max-width: 50vw;
-  height: 400px;
+  height: 350px;
   filter:  blur(0.75px) contrast(90%) brightness(110%);
+  object-fit: contain;
 }
 
 .blurb {
