@@ -6,7 +6,6 @@
 #  bio                    :text
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
-#  image                  :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -24,6 +23,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+
+  has_one_attached :image
 
   has_many  :likes, class_name: "Like", foreign_key: "user_id", dependent: :destroy
   has_many  :posts, class_name: "Post", foreign_key: "user_id", dependent: :destroy
