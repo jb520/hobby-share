@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   resources :hobby_follows
   root "users#dashboard"
   
+  
+  
   devise_for :users
 
-  
+  get("/landing", { :controller => "landing_page", :action =>  "index" })
 
   # Routes for the Comment resource:
 
