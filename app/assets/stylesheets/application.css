@@ -112,9 +112,10 @@ hr {
 }
 
 .post-img {
-  width: 10%;
-  height: auto; 
+  width: 60px;
+  height: 60px; 
   border-radius: 5px;
+  object-fit: cover;
 }
 
 .post-border {

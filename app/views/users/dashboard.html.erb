@@ -17,14 +17,14 @@
       <div class="text-center my-3 py-1">
         <%= link_to 'Manage Hobbies', hobby_follows_path, :class => "cool-btn nav-link rubik" %>
       </div>
-      <div class="text-center my-3 py-1">
+      <!--<div class="text-center my-3 py-1">
         <%= link_to 'Likes', likes_path, :class => "cool-btn nav-link rubik" %>
-      </div>
+      </div>-->
     </div>
   </div>
 
   <div class="container  mx-5">
-    <h3 class="accent-text ysabeau-sc">Feed</h3>
+    <!--<h3 class="accent-text ysabeau-sc">Feed</h3>-->
 
     <div>
       <% @user.followed_hobbies.order!(updated_at: :desc).each do |hobby| %>

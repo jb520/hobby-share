@@ -2,7 +2,7 @@
   <!--<img src="..." class="card-img-top" alt="...">-->
   <div class="card-body">
     <div class="d-flex">
-      <%= image_tag post.poster.image if post.poster.image.attached? %>
+      <%= image_tag post.poster.image if post.poster.image.attached?, :class => "img-thumbnail img-fluid post-img" %>
       <h5 class="card-title align-self-center"><%=@post.poster.username%></h5>
     </div>
     <p class="card-text py-2 px-5"><%=@post.content%></p>
