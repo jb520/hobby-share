@@ -50,7 +50,7 @@ hr {
 }
 
 .nav-colors {
-  border: 1px solid #81837a;
+  border-bottom: 1px solid #81837a;
   color: #090A07;
 }
 
@@ -203,4 +203,15 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+}
+
+/*buttons*/
+
+.form-btn {
+  background:#090A07;
+  color:#ffefd5;
+  border: solid 1px;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 }

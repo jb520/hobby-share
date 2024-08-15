@@ -1,8 +1,8 @@
 <%= form_with(model: comment) do |form| %>
   <%= form.hidden_field :post_id %>
-  <div>
-      <%= form.label :body%>
-      <%= form.text_field :body, class: "form-control", rows: 3 %>
+  <div class="mx-5 my-3">
+      <%= form.label :new_comment%>
+      <%= form.text_field :body, class: "form-control"  %>
   </div>
-    <%= form.submit %>
+    <%= form.submit "Submit", class: "rubik form-btn mx-5" %>
 <% end %>
