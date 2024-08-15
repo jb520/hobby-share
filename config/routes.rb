@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :hobby_follows
-  root "users#dashboard"
+  root "landing_page#index"
   
   
   

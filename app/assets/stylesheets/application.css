@@ -185,6 +185,21 @@ hr {
   background-color: hsla(0, 0%, 100%, 0.7);
 }
 
-.credit {
-  height: 100%;
+.quote-text {
+  font-size: 1em;
+  line-height: 1.5;
+  padding: 5px;
+  margin: 2px;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body.user {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
