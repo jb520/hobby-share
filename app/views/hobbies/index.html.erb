@@ -10,29 +10,28 @@
 
 <div>
   <div>
-    <h2>
-      Add a new hobby
+    <h2 class="ysabeau-sc">
+      add a new hobby
     </h2>
 
     <form action="/insert_hobby" method="post">
-      <div>
-        <label for="name_box">
-          Name
-        </label>
+      <div class="rubik d-flex flex-wrap">
 
-        <input type="text" id="name_box" name="query_name">
+        <input type="text" id="name_box" name="query_name" placeholder="Enter Hobby Name">
+
+        <button class="rubik form-btn mx-2">
+        Create hobby
+        </button>
       </div>
 
-      <button class="cool-btn">
-        Create hobby
-      </button>
+      
     </form>
   </div>
 </div>
 
-<hr>
 
-<div class="d-flex flex-wrap mx-2">
+
+<div class="d-flex flex-wrap mx-2 my-5">
   <% @list_of_hobbies.each do |hobby| %>
     <%= render "hobby", hobby: hobby%>
   <% end %>
