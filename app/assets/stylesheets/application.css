@@ -188,7 +188,8 @@ hr {
 .quote-text {
   font-size: 1em;
   line-height: 1.5;
-  letter-spacing: 1.25px;
+  letter-spacing: 1.6px;
+  word-spacing: .25em;
   padding: 5px;
   margin: 2px;
 }

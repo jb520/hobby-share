@@ -4,12 +4,15 @@
     <div class="d-flex">
       <%= image_tag post.poster.image, :class => "img-fluid post-img" if post.poster.image.attached?  %>
       <h5 class="card-title align-self-center mx-3 rubik"><%=@post.poster.username%></h5>
+
+    
       <div class="container-fluid d-flex flex-wrap justify-content-end">
         <div  class="me-3">
           <%= link_to edit_post_path(@post), :class => "link-color" do%>
             <i class="fa-regular fa-pen-to-square fa-lg"></i>
           <% end %>  
         </div>
+        
         <div class="me-3">
           <%= link_to post_path, :method => :delete, :class => "link-color" do%>
             <i class="fa-solid fa-trash-can fa-lg"></i>
