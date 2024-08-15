@@ -1,0 +1,38 @@
+<div class="d-flex container mx-1 py-3">
+  <div class="col mx-1 sidebar">
+    <h3 class="accent-text ysabeau-sc">Dashboard</h3>
+
+    <!--<div class="card px-2 d-flex" style="width: 16rem;">
+      <img src="<%= @user.image%>" class="my-2 rounded-circle">
+      <span class="d-flex justify-content-between"><%= @user.username %> 
+      <i class="fa-regular fa-pen-to-square"></i>
+      </span>
+      <hr>
+      <%= @user.bio %>
+    </div>-->
+    <div class="d-flex flex-column align-items-center text-left">
+      <div class="text-center my-3 py-1">
+        <%= link_to 'Browse Hobbies', hobbies_path, :class => "cool-btn nav-link rubik" %>
+      </div>
+      <div class="text-center my-3 py-1">
+        <%= link_to 'Manage Hobbies', hobby_follows_path, :class => "cool-btn nav-link rubik" %>
+      </div>
+      <!--<div class="text-center my-3 py-1">
+        <%= link_to 'Likes', likes_path, :class => "cool-btn nav-link rubik" %>
+      </div>-->
+    </div>
+  </div>
+
+  <div class="container  mx-5">
+    <!--<h3 class="accent-text ysabeau-sc">Feed</h3>-->
+
+    <div>
+      <% @user.followed_hobbies.order!(updated_at: :desc).each do |hobby| %>
+        <% hobby.posts.order!(created_at: :desc).each do |post|%>
+          <%=render "posts/posts", post: post%>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+</div>

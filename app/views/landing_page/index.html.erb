@@ -1,44 +1,5 @@
- <div class="d-flex align-items-center justify-content-around"> 
-  <div class="post-border hero-div my-5">
-    <h1 class="ysabeau-sc hero-text text-center"><div class="hero-top">find your</div><div class="hero-bottom">new <span class="">hobby</span>.</div></h1>
-  </div>
-  <div class="text-center">
-    <img src="https://cdn.discordapp.com/attachments/1273115202631762045/1273115582996287570/IMG_8476.jpg?ex=66bd70c8&is=66bc1f48&hm=21621c9345b60b5d0245b6c2d84cff60ef3f980be8d907899ec31fb68ac0b497&", class="hero-img mx-5 my-5">
-  </div>
-</div>
-
-<div class="mx-5 my-2 d-flex justify-content-end" style="backrgound: green">
-  <p class="rubik blurb text-left px-3 py-4 post-border">Dive into your favorite pastimes, explore new interests, and celebrate the joy of hobbies with a community that shares your excitement. HobbyShare is the perfect place to connect with like-minded individuals, share your projects, and find inspiration. </p>
-</div>
-
-<div class="my-5">
-  <h3 class="ysabeau-sc mx-3">from our users</h3>
-  <div class="d-flex flex-wrap justify-content-around mx-3 my-3">
-
-    <div class="card quote-card border mx-2 my-2" style="width: 18rem;">
-      <div class="card-body">
-      <h5 class="card-title rubik">“ I’m really loving this site for sharing my hobbies. It’s great to get feedback from others who are just as passionate, and it’s made my hobby even more fun! ”</h5>
-      <hr>
-      <p class="card-text rubik">User 1</p>
-      </div>
-    </div>
-
-    <div class="card quote-card border mx-2 my-2" style="width: 18rem;">
-      <div class="card-body">
-      <h5 class="card-title rubik">“This site is awesome for connecting with others who are into the same stuff I am. It’s easy to use, and I love swapping ideas and getting inspired by everyone’s projects.”</h5>
-      <hr>
-      <p class="card-text rubik">User 2</p>
-      </div>
-    </div>
-
-    <div class="card quote-card border mx-2 my-2" style="width: 18rem;">
-      <div class="card-body">
-      <h5 class="card-title rubik">“ The people are super friendly, and I’ve picked up tons of cool tips from other hobbyists.”</h5>
-      <hr>
-        
-      <p class="card-text rubik">User 3</p>
-      </div>
-    </div>
-
-  </div>
-</div>
+<% if user_signin? %>
+  <%= render 'shared/dashboard'%>
+<% else %>
+ <%= render 'landing_non_login'%>
+<% end %>
