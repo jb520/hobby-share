@@ -13,6 +13,8 @@ class Comment < ApplicationRecord
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
   belongs_to :post, required: true, class_name: "Post", foreign_key: "post_id"
 
+  # Looks like you are just getting the ID of the person who created the comment, but the belings_to :user association does this for you.
+
   def poster
     matching_user = User.where({ :id => self.user_id }).at(0)
     return matching_user

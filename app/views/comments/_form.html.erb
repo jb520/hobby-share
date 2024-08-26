@@ -1,4 +1,5 @@
 <%= form_with(model: comment) do |form| %>
+  <%# a user can change this value in the browser to any value. Its better to set this value in the controller %>
   <%= form.hidden_field :post_id %>
   <div class="mx-5 my-3">
       <%= form.label :new_comment%>

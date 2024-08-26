@@ -10,7 +10,13 @@ class HobbiesController < ApplicationController
   end
 
   def show
+    # You are adding all hobbies to the show page so technically a user can have access to all the hobbies in the show page but it should only be one hobby.
+    # Which you do in the before action
+
     @hobbies = Hobby.all
+
+    # remove any unused code
+
      #the_id = params.fetch("path_id")
 
      #matching_hobbies = Hobby.where({ :id => the_id })
@@ -33,6 +39,7 @@ class HobbiesController < ApplicationController
   end
 
   def update
+    # the hobby is being set in the before action so no need to look for it again
     the_id = params.fetch("path_id")
     the_hobby = Hobby.where({ :id => the_id }).at(0)
 
@@ -47,6 +54,7 @@ class HobbiesController < ApplicationController
   end
 
   def destroy
+    # also being done in the before action. Not necessary to do the queries agian.
     the_id = params.fetch("path_id")
     the_hobby = Hobby.where({ :id => the_id }).at(0)
 
@@ -54,11 +62,13 @@ class HobbiesController < ApplicationController
 
     redirect_to("/hobbies", { :notice => "Hobby deleted successfully."} )
   end
-  
+
   private
     def set_hobby
       @hobby = Hobby.find(params[:id])
     end
+
+  # Strong params are good. Any reason to comment out?
 
   #   def hobby_params
   #     params.require(:hobby).permit(:name)

@@ -36,9 +36,10 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :image, presence: true
 
+  # also does the same as belongs_to :hobby_follows
   def my_hobbies
     matched = HobbyFollow.where({ :user_id => self.id })
     return matched
   end
-  
+
 end
