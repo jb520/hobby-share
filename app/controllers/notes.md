@@ -1,0 +1,1 @@
+It looks like you have a before action in your controllers to set the data, but you are still doing the queries in the actions which you are duplicating the work. No need to look for them if you do the before action. 

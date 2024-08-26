@@ -19,6 +19,7 @@ class Post < ApplicationRecord
 
   has_rich_text :content
 
+  # This does the same as belongs_to :user
   def poster
     matching_user = User.where({ :id => self.user_id }).at(0)
     return matching_user

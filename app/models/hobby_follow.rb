@@ -12,6 +12,7 @@ class HobbyFollow < ApplicationRecord
   belongs_to :user, required: true, class_name: "User", foreign_key: "user_id"
   belongs_to :hobby, required: true, class_name: "Hobby", foreign_key: "hobby_id"
 
+  # These are being done in the belongs_to methods. Those methods just return the user and hobby that correspond to this HobbyFollow.
   def member
     matching_user = User.where({ :id => self.user_id }).at(0)
     return matching_user
@@ -22,6 +23,6 @@ class HobbyFollow < ApplicationRecord
     return matching_hobby
   end
 
-  
+
 
 end

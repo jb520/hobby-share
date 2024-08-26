@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
   before_action :set_user, :user_params
+
+  # remove unused code
   # def dashboard
   #   feed_hobby = @user.followed_hobbies
   #   feed_posts = feed_hobby.each do |hobby|
@@ -7,7 +9,7 @@ class UsersController < ApplicationController
   #   end
   #   @feed = feed_posts.order(updated_at: :desc)
   # end
-  # 
+  #
   def update
   end
   #
@@ -15,7 +17,7 @@ class UsersController < ApplicationController
   end
   #
   private
-  
+
   def set_user
     @users = User.all
     if params[:id]

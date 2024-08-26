@@ -1,4 +1,6 @@
 <%= form_with(model: hobby_follow) do |form| %>
+
+  <%# A user can change this value in the broswer. Its better to set it in the controller.   %>
   <%= form.hidden_field :hobby_id %>
   
   <% if hobby_follow.errors.any? %>
